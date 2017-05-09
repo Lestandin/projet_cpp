@@ -1,0 +1,82 @@
+
+#include "Document.h"
+
+using namespace std;
+
+///// Document /////
+
+document::document(const string id, const string date, const string title)
+{
+	set_id(id);
+	set_date(date);
+	set_title(title);
+}
+
+document::document(const string id, const string title)
+{
+	set_id(id);
+    set_date("");
+	set_title(title);
+}
+document :: ~document() {}
+
+//getter
+string document :: get_id()
+{
+	return id;
+}
+
+string	  document::get_date()
+{
+	return date;
+}
+
+string document::get_title()
+{
+	return title;
+}
+
+//setter
+bool document::set_id(const string _ID)
+{
+	if (_ID == "")
+	{
+		cout << "Veuillez renseigner l'ID s'il vous plaît" << '\n';
+		return 0;
+	}
+	else
+	{
+		id = _ID;
+		return 1;
+	}
+}
+
+
+bool document::set_date(const string _date)
+{
+	if (_date < 0)
+	{
+		cout << "Date choisie non valide, veuillez réessayer" << '\n';
+		return 0;
+	}
+	else
+	{
+		date = _date;
+		return 1;
+	}
+}
+
+bool document::set_title(const string _title)
+{
+	if (_title == "")
+	{
+		title = "Inconnu";
+		return 1;
+	}
+	else
+	{
+		title = _title;
+		return 1;
+	}
+
+}
